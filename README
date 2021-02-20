@@ -1,0 +1,11 @@
+﻿Citim din stdin pe cate o linie comenzile cerute pana primim comanda "exit", care închide programul. Reținem primul cuvânt al comenzii.
+Dacă acesta este "create", stabilim in continuare dacă au fost citiți suficienți parametri. In caz afirmativ, zeroizam toate variabilele
+pe care le vom folosi, parcurgând fișierele "files.txt" si "usermap.txt" din care extragem toate informațiile necesare headerului,
+interpretate corespunzător (eventual valorile numerice transformate in octal). Valoarea chksum o calculam ca suma a octeților celorlalte
+componente ale headerului, dupa care scriem in arhiva pentru fiecare fișier headerul, conținutul propriu-zis completat cu 0-uri pana la
+obținerea unei dimensiuni multiplu de 512. La finalul arhivei, scriem o zona de 512 octeți de 0. Pentru aceste instrucțiuni folosim o
+abordare modularizata. Daca primul cuvânt citit este "list", verificam daca numarul de parametri este cel potrivit, dupa care, in caz
+afirmativ, parcurgem arhiva, căutând numele fiecărui fișier conținut si afișându-l in stdout, sărind prin citire numărul de octeți
+corespunzători dimensiunii fișierului. Daca primul cuvânt citit este "extract", verificam numărul de cuvinte citite in continuare,
+apoi parcurgem arhiva, verificând daca fișierul cautat exista ca nume intr-un header, caz in care copiem octeții corespunzători fișierului
+intr-un alt fișier cu numele "extracted_nume_fisier".
